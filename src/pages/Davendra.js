@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 
 const Davendra = () => {
     const [dataArr,setDataArr]=useState()
+    
+    //columns made
     const columns = [
         {
           title: 'Name',
@@ -21,6 +23,7 @@ const Davendra = () => {
         },
       ];
 
+      //fetching data using mock api hosted at local host 8000
       const fetchData=()=>{
         try {
             fetch('http://localhost:8000/api/dave/')
@@ -33,12 +36,14 @@ const Davendra = () => {
         }
       }
       
+      //everytime this component is rendered this will runs initially
       useEffect(() => {  
         fetchData();
       }, [])
       
   return (
     <div>
+        //displaying table 
         <Table columns={columns} dataSource={dataArr} />
     </div>
   )
